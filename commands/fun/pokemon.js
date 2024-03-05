@@ -42,6 +42,11 @@ module.exports = {
                     inline: true
                 },
                 {
+                    name: 'Types',
+                    value: pokemonInfo.types.map(a => a.type.name).join(', '),
+                    inline: true
+                },
+                {
                     name: 'Stats',
                     value: pokemonInfo.stats.map(a => `${a.stat.name} [${a.base_stat}]`).join(', '),
                     inline: true
@@ -49,11 +54,6 @@ module.exports = {
                 {
                     name: `Abilities [${pokemonInfo.abilities.length}]`,
                     value: pokemonInfo.abilities.map(a => a.ability.name).join(', '),
-                    inline: true
-                },
-                {
-                    name: 'Types',
-                    value: pokemonInfo.types.map(a => a.type.name).join(', '),
                     inline: true
                 },
                 {

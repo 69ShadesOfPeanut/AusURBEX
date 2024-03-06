@@ -1,7 +1,7 @@
 // Require the necessary discord.js classes
 const fs = require('node:fs')
 const path = require('node:path')
-const { Client, Collection, Events, GatewayIntentBits, InteractionCollector } = require('discord.js')
+const { Client, Collection, Events, GatewayIntentBits, InteractionCollector, ActivityType } = require('discord.js')
 const { token } = require('./config.json')
 
 // create a new client instance
@@ -58,7 +58,11 @@ client.on(Events.InteractionCreate, async interaction => {
 // When the client is ready, run this code (only once).
 client.once(Events.ClientReady, readyClient => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`)
+
+    // Set bot status
+    client.user.setActivity('Aus Urbex', { type: ActivityType.Listening })
 })
+
 
 // Log into Discord with your client token
 client.login(token)

@@ -63,7 +63,11 @@ module.exports = {
         const analysisStats = getResponseInfo.data.attributes.last_analysis_stats
         const categories = getResponseInfo.data.attributes.categories
         const reputation = getResponseInfo.data.attributes.reputation
-        const trackers = getResponseInfo.data.attributes.trackers
+        let trackers = getResponseInfo.data.attributes.trackers
+
+        if (trackers == null) {
+            trackers = 'null'
+        }
 
         //console.log(getResponseInfo.data.attributes.redirection_chain)
 

@@ -13,8 +13,13 @@ module.exports = {
         const aboutEmbed = new EmbedBuilder()
             .setColor('Random')
             .setTitle('Aus Urbex Bot Information')
-            .setFooter({ text: 'Made by 69ShadesOfPeanut' })
+            .setFooter({ text: 'Made and hosted by 69ShadesOfPeanut' })
             .addFields(
+                {
+                    name: 'About',
+                    value: 'The Aus Urbex Bot was made by Peanut to be used alongside the Aus Urbex discord server which is ran by Peanut and Remy',
+                    inline: true
+                },
                 {
                     name: 'Donate',
                     value: '[Peanut](https://ko-fi.com/shadesofpeanut)',

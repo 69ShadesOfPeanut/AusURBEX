@@ -11,6 +11,8 @@ module.exports = {
                 .setDescription('email to check for breaches')
                 .setRequired(true)),
     async execute(interaction) {
+        await interaction.deferReply()
+
         // Get string for email
         const email = interaction.options.getString('email')
 
@@ -42,6 +44,8 @@ module.exports = {
         // Define vars for use
         var passwordsStrength = responseInfo.BreachMetrics.passwords_strength[0]
 
+        // Slice breaches array
+        var breaches = responseInfo.ExposedBreaches.breaches_details.slice(0, 50)
 
         // Build discord embed
         const breachEmbed = new EmbedBuilder()
@@ -50,7 +54,7 @@ module.exports = {
             .addFields(
                 {
                     name: 'Breaches',
-                    value: responseInfo.ExposedBreaches.breaches_details.map(a => a.breach).join(', '),
+                    value: breaches.map(a => a.breach).join(', '),
                     inline: true
                 },
                 {
@@ -71,6 +75,6 @@ module.exports = {
             )
         
         // Send embed
-        await interaction.reply({ embeds: [breachEmbed] })
+        await interaction.editReply({ embeds: [breachEmbed] })
     }
 }

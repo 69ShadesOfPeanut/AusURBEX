@@ -1,7 +1,6 @@
 // Command to send a photo of a random fox
 
 const { SlashCommandBuilder } = require("discord.js")
-const { randomCatKey } = require('../../config.json')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -26,7 +25,7 @@ module.exports = {
         const responseInfo = await response.json()
         
         // Display image
-        console.log(responseInfo)
+        //console.log(responseInfo)
         await interaction.reply(`${responseInfo.image}`)
     }
 }

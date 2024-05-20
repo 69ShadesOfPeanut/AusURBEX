@@ -50,7 +50,7 @@ module.exports = {
         // Build discord embed
         const breachEmbed = new EmbedBuilder()
             .setColor('Random')
-            .setTitle('Data breaches')
+            .setTitle(`Data breaches for ${email}`)
             .addFields(
                 {
                     name: 'Breaches',
